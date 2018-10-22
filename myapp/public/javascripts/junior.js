@@ -2,6 +2,7 @@
 // everything that you declare at the root level is going to
 // live in the global scope, thus isolating the code here to
 // prevent collision of variables
+// Junior
 (() => {
     const ul = document.querySelector("#list");
     const form = document.querySelector("#form");
@@ -25,9 +26,9 @@
         const json = await res.json();
 
         const li = document.createElement("li");
-        
+
         li.innerHTML = json.todo;
-        
+
         ul.appendChild(li);
     });
 })();

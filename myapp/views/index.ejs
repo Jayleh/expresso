@@ -12,36 +12,46 @@
   </head>
 
   <body>
-    <main>
+    <main class="main">
       <nav class="navbar">
         <ul class="navbar-list">
+          <!-- semantic markup, links are not buttons (if not using a frontend framework) -->
+          <!-- custom attributes to designate where these elements are used -->
           <li>
             <a href="#">Home</a>
           </li>
           <li>
-            <a href="#">Open sidebar</a>
+            <!-- <a href="#" class="open-sidebar button">Open sidebar</a> -->
+            <button class="button" data-js="open-sidebar" data-theme="button">Open sidebar</button>
           </li>
           <li>
-            <a href="#">Change theme</a>
+            <!-- <a href="#" class="theme-button button">Change theme</a> -->
+            <button class="button" data-js="theme-button" data-theme="button">Change theme</button>
           </li>
         </ul>
       </nav>
+      <aside class="sidebar" data-js="sidebar">
+        <ul class="sidebar__ul">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+        <div class="sidebar__click-catcher" data-js="sidebar-click-catcher"></div>
+      </aside>
       <h1>Todos</h1>
-      <ul id="list">
+      <ul class="todo-list" data-js="todo-list">
         <!-- Server side rendering -->
         <% todos.forEach(function(todo) { %>
-        <li>
-          <%= todo %>
-        </li>
+        <li><%= todo %></li>
         <% }); %>
       </ul>
-      <form id="form">
-        <input id="todo-field" type="text" name="search" placeholder="search">
+      <form data-js="form">
+        <input data-js="todo-field" type="text" name="add_todo" placeholder="Add todo here">
       </form>
     </main>
 
     <!-- Modern practices, would use a bundle (webpack) -->
-    <script src="/javascripts/test.js"></script>
+    <script src="/javascripts/senior2.js"></script>
   </body>
 
 </html>
